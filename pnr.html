@@ -1,0 +1,155 @@
+<!-- <rail api key= bpo8v9oioq swncsut7hz> i0xgptdfc6-->
+<!-- 8612082617	4452857634 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="r1.jpg" type="image/icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>RAILWAY ENQUIRY</title>
+</head>
+<style>
+  .heading
+  {
+    font-family: Serif, cursive;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color:white;
+  }
+  .main
+  {
+    background-color:black;
+    background-image:url('back.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 10%;
+  }
+</style>
+	<html>
+	<body class="main">
+		<center>
+		<div style="background-color:dodgerblue"> 
+		  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+		    <a class="navbar-brand" href="#" style="background-color:rgb(255, 255, 140)">Railway Links</a>
+		      <button class="navbar-toggler" style="" type="button" data-toggle="collapse" 
+		      data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		      </button>
+		      <div class="collapse navbar-collapse" id="navbarText" style="background-color:rgb(255, 255, 140)">
+		        <ul class="navbar-nav mr-auto">
+		          <li class="nav-item active">
+		            <a class="nav-link" href="file:///home/utkarsh/Desktop/Asylum/RAIL/NIKHIL/FINAL/index1.html" style="color:black">Home <span class="sr-only">(current)</span></a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="https://www.irctc.co.in/" target="_blank" style="color:black">IRCTC</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="https://erail.in/" target="_blank" style="color:black">E-RAIL</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="www.indianrail.gov.in/" target="_blank" style="color:black">INDIAN RAIL</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="www.trainenquiry.com/" target="_blank" style="color:black">TRAIN ENQUIRY</a>
+		          </li>
+		        </ul>
+		      </div>
+		  </nav>
+		</div>
+		<div>
+
+		  <h1 class="heading" style="margin-top:20px;display:block;margin:0% 12.5%;font-style:Serif;border:2px double black;color:black;width:75%;background-color:red"> 
+		  INDIAN RAILWAYS ENQUIRY</h1>
+		</div>
+		<div>
+			<input type="text" id="input" style="height:70px;width:200px;margin:5% 5%;border:5px double black;" 
+			placeholder="Enter Your PNR" required>
+			<button type="button" class="btn btn-outline-primary" style="height:auto;width:auto;background-color:black"  
+			onclick="searchPNR()">
+				Check
+			</button>
+			<button type="button" class="btn btn-outline-primary" style="height:auto;width:auto;background-color:black;"  
+			onclick="clear1()">
+				Clear
+			</button>
+			<br/>
+			<div style="border: 2px double black;background-color:white;font-size: 20px;height:auto;width:50%;color:black;margin:0% 25%;text-align:left;padding: 2% 5%">
+				Passengers List:
+				<ol style="color:black;" id="li2"></ol>
+			</div>
+			</div>
+		</center>
+	</body>
+
+	<script type="text/javascript">
+	var o;
+	var api="i0xgptdfc6";
+	function searchPNR()
+		{
+			if(document.getElementById("input").value)
+			{
+				console.log(typeof(document.getElementById("input").value));
+				var pnr=document.getElementById("input").value;
+				//pnr=Number(pnr);
+				console.log(pnr);
+				console.log(typeof(pnr));
+				var xhttp=new XMLHttpRequest();
+				xhttp.onreadystatechange=function()
+				{
+					console.log("Entered 2");
+					if(this.readyState==4 && this.status==200)
+						{
+							console.log("Entered 1");
+							o=JSON.parse(this.responseText);
+							console.log(o);
+							if(o.response_code==200)
+							{
+								var l=o.passengers.length;
+								var len=l;
+								console.log(l);
+								if(document.getElementById("li2").innerHTML)
+								document.getElementById("li2").innerHTML="";
+								while(l--)
+								{
+									console.log(o.passengers[l].current_status);
+									console.log(o.passengers[l].booking_status);
+									a=o.passengers[l];
+									x1="Passenger "+(len-l)+ "<br/>"+"Current Status = "+a.current_status+ "<br/>" +"Booking Status = "+a.booking_status;
+									document.getElementById("li2").innerHTML=document.getElementById("li2").innerHTML+"<li>"+x1+"</li>";
+								}
+
+							}
+							else if (o.response_code==500 || o.response_code)
+							{
+								alert("No Response");
+							}
+						}
+				};
+				xhttp.open(
+				"GET",
+				`https://api.railwayapi.com/v2/pnr-status/pnr/${pnr}/apikey/${api}/`,
+				true
+				);
+				xhttp.send();
+			}
+			else
+				alert("Enter PNR");
+		}
+		function clear1()
+		{
+			if(document.getElementById("input").value)
+			{
+				document.getElementById("input").value="";
+				document.getElementById("li2").innerHTML="";
+			}
+			else
+				alert("Already Cleared");
+		}
+	</script>
+</html>

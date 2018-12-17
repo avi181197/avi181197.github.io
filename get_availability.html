@@ -1,0 +1,168 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>RAILWAY ENQUIRY</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<meta charset="utf-8">
+    <link rel="icon" href="r1.jpg" type="image/icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+  .heading
+  {
+    font-family: Serif, cursive;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color:white;
+  }
+  .main
+  {
+    background-color:black;
+    background-image:url('back.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 10%;
+  }
+</style>
+
+<body class="main">
+		<center>
+		<div style="background-color:dodgerblue"> 
+		  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+		    <a class="navbar-brand" href="#" style="background-color:rgb(255, 255, 140)">Railway Links</a>
+		      <button class="navbar-toggler" style="" type="button" data-toggle="collapse" 
+		      data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		      </button>
+		      <div class="collapse navbar-collapse" id="navbarText" style="background-color:rgb(255, 255, 140)">
+		        <ul class="navbar-nav mr-auto">
+		          <li class="nav-item active">
+		            <a class="nav-link" href="file:///home/utkarsh/Desktop/Asylum/RAIL/NIKHIL/FINAL/index1.html" style="color:black">Home <span class="sr-only">(current)</span></a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="https://www.irctc.co.in/" target="_blank" style="color:black">IRCTC</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="https://erail.in/" target="_blank" style="color:black">E-RAIL</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="www.indianrail.gov.in/" target="_blank" style="color:black">INDIAN RAIL</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="www.trainenquiry.com/" target="_blank" style="color:black">TRAIN ENQUIRY</a>
+		          </li>
+		        </ul>
+		      </div>
+		  </nav>
+		</div>
+		<div>
+
+		  <h1 class="heading" style="margin-top:20px;display:block;margin:0% 12.5%;font-style:Serif;border:2px double black;color:black;width:75%;background-color:red"> 
+		  INDIAN RAILWAYS ENQUIRY</h1>
+		</div>
+	
+        <center>
+            <div style="background-color: white;border:2px double black;margin: 5% 20%;padding: 5% 5%">
+                <input type="text" id="Travel1" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+                placeholder="Boarding Station" required>
+                <input type="text" id="Travel2" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+                placeholder="Destination Station" required>
+                <!-- <br/> -->
+                <input type="text" id="date" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+                placeholder="dd-mm-yyyy" required>
+                <!-- <br/> -->
+                <input type="text" id="pref" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+                placeholder="Class Code" required>
+                <input type="text" id="quota" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+                placeholder="Quota Code" required>
+                <!-- <br/> -->
+                <button type="button" class="btn btn-outline-primary" style="height:auto;width:auto;background-color:black;"  
+                onclick="trainlist()">
+                Check Availaiblity
+                </button>
+                <button type="button" class="btn btn-outline-primary" style="height:auto;width:auto;background-color:black;"  
+                onclick="clear1()">
+                Clear
+                </button>
+            </div>
+            </center>
+		<center>
+			<div class="container" id="output" style="border: 2px solid black;height: 300px; width:600px;background-color: white">
+			</div>
+		</center>        
+   </body>
+
+
+</body>
+<script type="text/javascript"> //fh40v3yqqx 
+	function trainlist()
+{
+	var SRC=document.getElementById('Travel1').value;
+	var DST=document.getElementById('Travel2').value;
+	var quota=document.getElementById('quota').value;
+	var pref=document.getElementById('pref').value
+	//var x=document.getElementById('abc').value;
+	var date=document.getElementById('date').value
+	var listOfTrains=[],strt_time=[],arr_time=[],ctr=0,add='';
+	axios.get(`https://api.railwayapi.com/v2/between/source/${SRC}/dest/${DST}/date/${date}/apikey/fh40v3yqqx/`)
+		.then(function (response)
+		{
+			console.log(response)
+			for(let i=0;i<response.data.total;i++)
+				{
+					listOfTrains.push(response.data.trains[i].number)
+					strt_time.push(response.data.trains[i].src_departure_time)
+					arr_time.push(response.data.trains[i].dest_arrival_time)
+				}			
+			console.log(listOfTrains)
+			//chinking availability in ith train
+			for(let i=0;i<response.data.total;i++)
+			{
+				var train_no=listOfTrains[i];
+				axios.get(`https://api.railwayapi.com/v2/check-seat/train/${train_no}/source/${SRC}/dest/${DST}/date/${date}/pref/${pref}/quota/${quota}/apikey/fh40v3yqqx/`)
+					.then(function (response) 
+					{
+						if(response.data.response_code=='404' || response.data.response_code=='405')
+							throw new Error("train details not available")
+						console.log(response)
+						console.log(response.data.availability[0].status[0])
+						add=`<ol>
+							 <li>${listOfTrains[i]}   Availability: ${response.data.availability[0].status}   Departue Time: ${strt_time[i]}    Arrival Time: ${arr_time[i]}  
+							 </li>
+							 </ol>`
+						if(response.data.availability[0].status[0]=='A')
+							ctr++;
+						console.log("ctr ="+ctr)
+						document.getElementById('output').innerHTML+=add;
+						//if(response.data.availability[0].status[0]=='A')
+						//	ctr=+ctr + +1
+						if(ctr==0)
+						{
+						document.getElementById("output").innerHTML=`<h4>NO TRAINS HAVE AVAILABILITY FOR GIVEN STATIONS</h4>
+															 <br>
+															 <h5>For another stations in the given route click below</h5>
+															 <p><a href="axios.html ">Redirect</a></p>`
+						}
+					})
+					.catch(function (err)
+					{
+						console.log(err)
+					})
+			}
+			
+		})
+		.catch(function (err)
+		{
+			console.log(err)
+		})
+
+		
+}
+</script>
+</html>

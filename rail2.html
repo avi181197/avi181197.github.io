@@ -1,0 +1,364 @@
+<!-- <rail api key= bpo8v9oioq swncsut7hz> fh40v3yqqx-->
+<!-- 8612082617	4452857634 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="r1.jpg" type="image/icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>RAILWAY ENQUIRY</title>
+</head>
+<style>
+  .heading
+  {
+    font-family: Serif, cursive;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color:white;
+  }
+  .main
+  {
+    background-color:black;
+    background-image:url('back.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 10%;
+  }
+</style>
+	<html>
+	<body class="main">
+
+		<div style="background-color:dodgerblue"> 
+		  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+		    <a class="navbar-brand" href="#" style="background-color:rgb(255, 255, 140)">Railway Links</a>
+		      <button class="navbar-toggler" style="" type="button" data-toggle="collapse" 
+		      data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		      </button>
+		      <div class="collapse navbar-collapse" id="navbarText" style="background-color:rgb(255, 255, 140)">
+		        <ul class="navbar-nav mr-auto">
+		          <li class="nav-item active">
+		            <a class="nav-link" href="file:///home/utkarsh/Desktop/Asylum/RAIL/NIKHIL/FINAL/index1.html" style="color:black">Home <span class="sr-only">(current)</span></a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="https://www.irctc.co.in/" target="_blank" style="color:black">IRCTC</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="https://erail.in/" target="_blank" style="color:black">E-RAIL</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="www.indianrail.gov.in/" target="_blank" style="color:black">INDIAN RAIL</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="www.trainenquiry.com/" target="_blank" style="color:black">TRAIN ENQUIRY</a>
+		          </li>
+		        </ul>
+		      </div>
+		  </nav>
+		</div>
+		<div>
+
+		  <h1 class="heading" style="margin-top:20px;display:block;margin:0% 12.5%;font-style:Serif;border:2px double black;color:black;width:75%;background-color:red"> 
+		  INDIAN RAILWAYS ENQUIRY</h1>
+		</div>
+		<center>
+			<div style="border:2px double black;margin:5% 20%;padding:5% 5%;background-color:white;">
+				<input type="text" id="bs" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+				placeholder="Boarding Station" required>
+				<input type="text" id="ds" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+				placeholder="Destination Station" required>
+				<!-- <br/> -->
+				<input type="text" id="dt1" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+				placeholder="dd-mm-yyyy" required>
+				<input type="text" id="day1" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+				placeholder="Day" required>
+				<!-- <br/> -->
+				<input type="text" id="cc1" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+				placeholder="Chair Car Code" required>
+				<input type="text" id="qc1" style="height:50px;display:block;width:350px;margin:5% 5%;border:5px double black" 
+				placeholder="Quota Code" required>
+				<!-- <br/> -->
+				<button type="button" class="btn btn-outline-primary" style="height:auto;width:auto;"  
+				onclick="Cl()">
+				Check Availaiblity
+				</button>
+				<button type="button" class="btn btn-outline-primary" style="height:auto;width:auto;"  
+				onclick="clean()">
+				Clear
+				</button>
+			</center>
+			<center>
+				<div style="border:2px double black;margin:5% 20%;padding:5% 5%;background-color:white;text-align: left">
+					Train List:
+					<ol id="final"></ol>
+				</div>
+			</center>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+				var dayindex=3;//extract
+				var code1="",code2="",code3="";
+				var o1,o2,o3;
+				var xhttp1,xhttp2,xhttp3;
+				var flag,flag1;
+				var lr1,lr2;
+	function Cl()
+		{			
+			if(document.getElementById("bs").value && document.getElementById("ds").value && document.getElementById("dt1").value && 
+			document.getElementById("day1").value && document.getElementById("cc1").value && document.getElementById("qc1").value)
+			{
+
+				document.getElementById("final").innerHTML="";
+
+				var o;
+				var api="i0xgptdfc6";
+				var stn1=document.getElementById("bs").value;//"howrah"
+				var stn2=document.getElementById("ds").value;//"ranchi"
+				var date=document.getElementById("dt1").value;//20-12-2018
+				var day=document.getElementById("day1").value;//Monday
+				var cc=document.getElementById("cc1").value;;//code reqd
+				var qc=document.getElementById("qc1").value;;//code reqd
+
+				// var o;
+				// var stn1="TATA";
+				// var stn2="PUNE";
+				// var date="20-12-2018";
+				// var day="THURSDAY";
+				// var cc="1A";
+				// var qc="GN";
+				
+
+			 	xhttp1=new XMLHttpRequest();
+				xhttp1.onreadystatechange=function()
+				{
+					//console.log("Entered 2");
+					if(this.readyState==4 && this.status==200)
+						{
+							// console.log("Entered 1");
+							o1=JSON.parse(this.responseText);
+							console.log(o1);
+							lr2=1;
+							lr2=o1.stations.length;
+							//console.log(lr2);
+							lr2=lr2-1;
+							while((o1.stations[lr2].name).includes(stn1)==false)
+								{
+									lr2--;
+								}
+							code1=o1.stations[lr2].code;//howrah code
+							// console.log(o1.stations[lr2].code);	
+
+							xhttp2=new XMLHttpRequest();
+							xhttp2.onreadystatechange=function()
+							{
+								//console.log("Entered 2");
+								if(this.readyState==4 && this.status==200)
+									{
+										console.log("Entered 11");
+										o2=JSON.parse(this.responseText);
+										console.log(o2);
+										lr1=o2.stations.length;
+										// console.log(lr1);
+										lr1=lr1-1;
+										while((o2.stations[lr1].name).includes(stn2)==false)
+										{
+											lr1--;
+										}
+										code2=o2.stations[lr1].code;//ranchi code	
+										// console.log(o2.stations[lr1].code);	
+										xhttp3=new XMLHttpRequest();
+										xhttp3.onreadystatechange=function()
+										{
+											//console.log("Entered 2");
+											if(this.readyState==4 && this.status==200)
+												{
+													console.log("Entered 111");
+													o3=JSON.parse(this.responseText);
+													console.log(o3);
+													var l=o3.total;//no. of trains
+													// console.log(l);
+													flag=0;
+													while(l--)	
+													{
+														if(o3.trains[l].days[dayindex].runs=="Y")
+														{
+															flag=1;
+
+															console.log(o3.trains[l].number);
+															console.log(o3.trains[l].name);
+															console.log(o3.trains[l].travel_time);
+															console.log(o3.trains[l].src_departure_time);
+															console.log(o3.trains[l].dest_arrival_time);
+
+															var val="";
+															val="Train Number : "+o3.trains[l].number+"<br/>"+"Train name : "+o3.trains[l].name
+															+"<br/>"+"Journey Time : "+o3.trains[l].travel_time+"<br/>"+"Departure Time : "+o3.trains[l].src_departure_time
+															+"<br/>"+"Arrival Time : "+o3.trains[l].dest_arrival_time+"<br/>";
+															document.getElementById("final").innerHTML=document.getElementById("final").innerHTML+"<li>"+val+"</li>";
+
+															// var xhttp7=new XMLHttpRequest();
+															// var av;
+															// xhttp7.onreadystatechange=function()
+															// {
+															// 	//console.log("Entered 2");
+															// 	if(this.readyState==4 && this.status==200)
+															// 		{
+															// 			//console.log("Entered 1");
+															// 			var o7=JSON.parse(this.responseText);
+															// 			console.log(o7);
+															// 			av="";
+															// 			if(o7.availability.length!=0)
+															// 			av=o7.availability[0].status;	
+															// 			else
+															// 			av="Not Available";	
+															// 			val=val+"Seat Availaiblity : "+av;
+															// 			console.log(av);
+															// 			// document.getElementById("final").innerHTML=document.getElementById("final").innerHTML+"<li>"+val+"</li>";	
+															// 			// val="";
+															// 		}
+															// };
+															// xhttp7.open(
+															// "GET",
+															// `https://api.railwayapi.com/v2/check-seat/train/${o3.trains[l].number}/source/${code1}/dest/${code2}/date/${date}/pref/${cc}/quota/${qc}/apikey/${api}/`,
+															// true
+															// );
+															// xhttp7.send();
+															// console.log(seat(o3.trains[l1].number,code1,code2,date,cc,qc));
+						      							}
+						      						}
+						      						if(flag==0)
+						      						{
+						      							document.getElementById("final").innerHTML=document.getElementById("final").innerHTML+
+						      							"No direct trains but alternate options are given below : "+"<br/>";
+
+						      							console.log("No direct trains but alternate options are given below:");
+						      							flag1=0;
+						      							for(let i=0;i<o1.stations.length;i++)//nearby stations to current/nearer destn
+						      								{
+						      									for(let j=0;j<o2.stations.length;j++)
+						      									{
+						      											var code5=o1.stations[i].code;
+
+																		var code6=o2.stations[j].code;
+
+							      											var xhttp4=new XMLHttpRequest();
+																			xhttp4.onreadystatechange=function()
+																			{
+																				if(this.readyState==4 && this.status==200)
+																					{
+																						//console.log("Entered 1");
+																						o4=JSON.parse(this.responseText);
+																						//console.log(o4);
+																						var l1=o4.total;//no. of trains
+																						//console.log(l1);
+																						while(l1--)	
+																						{
+																							if(o4.trains[l1].days[dayindex].runs=="Y")
+																							{
+																								flag1=1;
+
+																								console.log(o4.trains[l1].number);
+																								console.log(o4.trains[l1].name);
+																								console.log(o4.trains[l1].travel_time);
+																								console.log(o4.trains[l1].src_departure_time);
+																								console.log(o4.trains[l1].dest_arrival_time);
+
+																								val="";
+																								val="Train Number : "+o4.trains[l1].number+"<br/>"+
+																								"Train name : "+o4.trains[l1].name
+																								+"<br/>"+"Journey Time : "+o4.trains[l1].travel_time+"<br/>"+
+																								"Departure Time : "	+o4.trains[l1].src_departure_time
+																								+"<br/>"+"Arrival Time : "+o4.trains[l1].dest_arrival_time+"<br/>";
+																								
+																								// document.getElementById("final").innerHTML=
+																								// document.getElementById("final").innerHTML+"<li>"+val+"</li>";
+																								//console.log(seat(o4.trains[l1].number,code5,code6,date,cc,qc));
+																								// var xhttp7=new XMLHttpRequest();
+																								// var av="";
+																								// xhttp7.onreadystatechange=function()
+																								// {
+																								// 	//console.log("Entered 2");
+																								// 	if(this.readyState==4 && this.status==200)
+																								// 		{
+																								// 			//console.log("Entered 1");
+																								// 			var o7=JSON.parse(this.responseText);
+																								// 			//cp++;
+																								// 			console.log(o7);
+																								// 			av="";
+																								// 			if(o7.availability.length!=0)
+																								// 			av=o7.availability[0].status;	
+																								// 			else
+																								// 			av="Not Available";	
+																								// 			val=val+"Seat Availaiblity : "+av;
+																								// 			document.getElementById("final").innerHTML=
+																								// 			document.getElementById("final").innerHTML+"<li>"+val+"</li>";		
+																								// 		}
+																								// };
+																								// xhttp7.open(
+																								// "GET",
+																								// `https://api.railwayapi.com/v2/check-seat/train/${o4.trains[l1].number}/source/${code5}/dest/${code6}/date/${date}/pref/${cc}/quota/${qc}/apikey/${api}/`,
+																								// true
+																								// );
+																								// xhttp7.send();
+															      							}
+											      										}
+											      									}
+											      							}
+							      											xhttp4.open(
+																			"GET",
+																			`https://api.railwayapi.com/v2/between/source/${code5}/dest/${code6}/date/${date}/apikey/${api}/`,
+																			true
+																			);
+																			xhttp4.send();
+																}
+															}
+													}
+												}
+										}
+										xhttp3.open(
+										"GET",
+										`https://api.railwayapi.com/v2/between/source/${code1}/dest/${code2}/date/${date}/apikey/${api}/`,
+										true
+										);
+										xhttp3.send();	
+									}
+							};
+							xhttp2.open(
+							"GET",
+							`https://api.railwayapi.com/v2/name-to-code/station/${stn2}/apikey/${api}/`,
+							true
+							);
+							xhttp2.send();
+						}
+				};
+				xhttp1.open(
+				"GET",
+				`https://api.railwayapi.com/v2/name-to-code/station/${stn1}/apikey/${api}/`,
+				true
+				);
+				xhttp1.send();
+			}
+			else
+			alert("Fill all fields");
+		}
+				function clean()
+				{
+					document.getElementById("bs").value="";//"howrah"
+					document.getElementById("ds").value="";//"ranchi"
+					document.getElementById("dt1").value="";//20-12-2018
+					document.getElementById("day1").value="";//Monday
+					document.getElementById("cc1").value="";//code reqd
+					document.getElementById("qc1").value="";//code reqd
+					document.getElementById("final").innerHTML="";
+			
+				}
+			
+	</script>
+</html>
